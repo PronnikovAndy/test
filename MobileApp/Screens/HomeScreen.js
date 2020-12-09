@@ -1,8 +1,8 @@
-
-// import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState, useRef} from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import io from "socket.io-client";
+// import { GiftedChat } from 'react-native-gifted-chat'
 
 export default function HomeScreen() {
   const [messageToSend, setMessageToSend] = useState("");
@@ -35,7 +35,7 @@ export default function HomeScreen() {
         onSubmitEditing={sendMessage}
         />
         
-        {/* <StatusBar style="auto" /> */}
+        <StatusBar style="auto" />
     </View>
   );
 }
