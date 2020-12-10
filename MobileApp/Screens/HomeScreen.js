@@ -2,9 +2,11 @@ import React, {useEffect, useState, useRef} from 'react';
 import {View} from 'react-native';
 import io from "socket.io-client";
 import { GiftedChat } from 'react-native-gifted-chat'
+import JoinScreen from "./JoinScreen";
 
 export default function HomeScreen() {
   const [recvMessages, setRecvMessages] = useState([]);
+  const [hasJoined, setHasJoined] = useState(false);
   const socket = useRef(null);
 
   useEffect(() => {
@@ -21,12 +23,18 @@ export default function HomeScreen() {
   };
 
   return (
-      <GiftedChat
+    <View style={{ flex: 1 }}>
+      {hasJoined ? <GiftedChat
         messages={recvMessages}
         onSend={messages => onSend(messages)}
         user={{
           _id: 1,
         }}
       />
+    } : {
+      <JoinScreen />
+    }}
+      
+    </View>
   );
 }
