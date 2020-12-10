@@ -2,7 +2,7 @@ const io = require("socket.io")();
 
 let currentUserId = 2;
 let currentMessageId = 1;
-const userIds ={};
+const userIds = {};
 
 function createMessage(userId, messageText) {
     return {
