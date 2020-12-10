@@ -24,17 +24,17 @@ export default function HomeScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      {hasJoined ? <GiftedChat
+      {hasJoined ? (
+      <GiftedChat
         messages={recvMessages}
         onSend={messages => onSend(messages)}
         user={{
           _id: 1,
         }}
       />
-    } : {
+    ) : (
       <JoinScreen />
-    }}
-      
+    )}
     </View>
   );
 }
