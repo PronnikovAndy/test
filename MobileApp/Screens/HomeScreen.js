@@ -22,10 +22,16 @@ export default function HomeScreen() {
     setRecvMessages(prevState => GiftedChat.append(prevState, messages));
   };
 
+  const joinChat = username => {
+    socket.current.emit("join", username);
+    setHasJoined(true);
+  }
+
   return (
     <View style={{ flex: 1 }}>
       {hasJoined ? (
       <GiftedChat
+        renderUsernameOnMessage
         messages={recvMessages}
         onSend={messages => onSend(messages)}
         user={{
@@ -33,7 +39,7 @@ export default function HomeScreen() {
         }}
       />
     ) : (
-      <JoinScreen />
+      <JoinScreen joinChat={joinChat}/>
     )}
     </View>
   );
