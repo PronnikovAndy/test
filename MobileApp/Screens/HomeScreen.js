@@ -29,7 +29,6 @@ export default function HomeScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      {hasJoined ? (
       <GiftedChat
         renderUsernameOnMessage
         messages={recvMessages}
@@ -38,9 +37,6 @@ export default function HomeScreen() {
           _id: 1,
         }}
       />
-    ) : (
-      <JoinScreen joinChat={joinChat}/>
-    )}
     </View>
   );
 }
